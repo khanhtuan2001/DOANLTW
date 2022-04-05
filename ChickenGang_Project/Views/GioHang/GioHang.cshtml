@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ChickenGang_Project.Models.GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/DetailLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+<div class="container" style="margin-top:180px;">
+ 
+        <!-- Start row -->
+        <div class="row">
+            <!-- Start col -->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card m-b-30" style="border:none;">
+                    <div class="row justify-content-center">
+                        <div class="">
+                            <div class="cart-container">
+                                <div class="cart-head">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" style="font-size:20px;">#</th>
+                                                    <th scope="col" style="font-size:20px;">Action</th>
+                                                    <th scope="col" style="font-size:20px;">Photo</th>
+                                                    <th scope="col" style="font-size:20px;">Product</th>
+                                                    <th scope="col" style="font-size:20px;">Qty</th>
+                                                    <th scope="col" style="font-size:20px;">Price</th>
+                                                    <th scope="col" class="text-right" style="font-size:20px;">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+
+                                                {
+                                                    <tr>
+                                                        <th scope="row" style="font-size:20px;">1</th>
+                                                        <td><a href="#" class="text-danger" style="font-size:20px;"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                        <td><img src="~/@item.hinh" class="img-fluid" width="200" alt="product"></td>
+                                                        <td style="font-size:20px;">@Html.DisplayFor(modelItem => item.ten)</td>
+                                                        <td>
+                                                            <div class="form-group mb-0">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="@item.isoluong">
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size:20px;">@item.giaban</td>
+                                                        <td class="text-right" style="font-size:20px;">@item.dThanhtien</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="cart-body">
+                                    <div class="row">
+                                        <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+                                            <div class="order-note">
+                                                <div>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input style="font-size:16px; padding:20px;" type="search" class="form-control" placeholder="Coupon Code" aria-label="Search" aria-describedby="button-addonTags">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-success" type="submit" id="button-addonTags" style="padding:8px;font-size:16px;">Apply</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="specialNotes" style="font-size:16px;">Special Note for this order:</label>
+                                                        <textarea class="form-control" name="specialNotes" id="specialNotes" rows="3" placeholder="Message here" style="font-size:16px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                            <div class="order-total table-responsive ">
+                                                <table class="table table-borderless text-right">
+                                                    <tbody style="font-size:16px; ">
+                                                        <tr>
+                                                            <td>Sub Total :</td>
+                                                            <td>@ViewBag.TongTien</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Shipping :</td>
+                                                            <td>$0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tax(18%) :</td>
+                                                            <td>$180.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="f-w-7 font-18"><h4>Amount :</h4></td>
+                                                            <td class="f-w-7 font-18"><h4>@ViewBag.TongTien </h4></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-footer text-right">
+                                    <a class="btn btn-info my-1" style="font-size:16px;">Update Cart</a>
+                                    <a href="~/GioHang/DatHang" class="btn btn-success my-1" style="font-size:16px;">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+    

@@ -1,0 +1,140 @@
+﻿@using ChickenGang_Project.Models;
+
+<div class="top-left">
+    <div class="top-icons">
+        <ul>
+            <li>@Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</li>
+
+
+            @*<li><a href="#" onclick="document.getElementById('id02').style.display='block'">GIO HANG </a></li>*@
+            @if (Session["TaiKhoan"] == null)
+            {
+                @*<li><a href="@Html.ActionLink("dang nhap", "DangNhap", "Nguoidung")" >Đăng nhập </a></li>*@
+
+                <li>@Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung")</li>
+                <li><a href="~/NguoiDung/DangKy">Đăng ký </a></li>
+
+            }
+            else
+            {
+
+                if (Session["MaLoaiAccount"] != null)
+                {
+
+                    <li><a href="/Admin/Index"> Admin </a></li>
+
+                }
+
+                else
+                {
+                    ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                  //  <li><a>Chào @tv.HoTen</a></li>
+                }
+            }
+
+        </ul>
+    </div>
+    <div class="top-nav">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <!-- navbar-header -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <nav class="linkEffects linkHoverEffect_2">
+                    <ul>
+                        <li><a href="~/Home/Index" data-link-alt="Home" class="active"><span>Home</span></a></li>
+                        <li><a href="#services" data-link-alt="SERVICES" class="scroll"><span>Services</span></a></li>
+                        <li><a href="#gallery" data-link-alt="GALLERY" class="scroll"><span>Gallery</span></a></li>
+                        <li><a href="#special" data-link-alt="SPECIAL" class="scroll"><span>Special</span></a></li>
+                        <li><a href="#clients" data-link-alt="CLIENTS" class="scroll"><span>Clients</span></a></li>
+                        <li><a href="#contact" data-link-alt="CONTACT US" class="scroll"><span>Contact Us</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="clearfix"> </div>
+        </nav>
+    </div>
+    <div class="clearfix"> </div>
+    <!-- //navigation -->
+</div>
+
+<!-- Form Login -->
+
+<!--<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">
+    </span>
+    @*@@using (Ajax.BeginForm("DangNhap", "NguoiDung", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
+    {
+        <div class="modal-content animate">
+
+
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">X</button>
+
+            <div class="imgcontainer">
+                <p>Đăng nhập</p>
+
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <h3 style="font-weight:bold; color:red; text-align:center;" id="ThongBao"></h3>
+                <button type="submit" id="btnDangNhap">Login</button>-->
+                @*<label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>*@
+            <!--</div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" style="background-color: #04AA6D;">Đăng kí</button>
+
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </div>
+    }
+
+</div>-->
+
+
+@*<div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'"
+          class="close" title="Close Modal">
+    </span>
+    @using (Ajax.BeginForm("GioHang", "GioHang", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
+    {
+    <div class="modal-content animate">
+
+
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">X</button>
+
+        <div class="imgcontainer">
+            <p>Gio hang</p>
+
+        </div>
+
+        <div class="container">
+            @Html.ActionLink("GioHang", "GioHang", "GioHang")
+
+        </div>
+
+
+
+    </div>
+}
+
+</div>*@
+
+
